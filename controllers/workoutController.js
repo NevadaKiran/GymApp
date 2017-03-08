@@ -5,7 +5,7 @@ var mongoose = require('mongoose')
 var workout = require('../models/workout.js');
 
 // index routes
-router.get("/", function(req, res){
+router.get('/', function(req, res){
   res.render("workout/index.hbs",{
     workout: workout
   });
