@@ -4,9 +4,10 @@ var app = express();
 var hbs = require('hbs')
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose')
+var workoutController = require('./controllers/workoutController.js')
 
 // CONTROLLERS
-
+app.use('/workout', workoutController)
 
 // MIDDLE WARES
 app.use(express.static('/public'));

@@ -18,31 +18,31 @@ Workout.remove({}, function(err){
 // create new Workout
 var monday = new workout({
   warmup: '',
-  workout: '',
+  heavy: '',
   cooldown: ''
 });
 
 var tuesday = new workout({
   warmup: '',
-  workout: '',
+  heavy: '',
   cooldown: ''
 });
 
 var wednesday = new workout({
   warmup: '',
-  workout: '',
+  heavy: '',
   cooldown: ''
 });
 
 var thursday = new workout({
   warmup: '',
-  workout: '',
+  heavy: '',
   cooldown: ''
 });
 
 var friday = new workout({
   warmup: '',
-  workout: '',
+  heavy: '',
   cooldown: ''
 });
 
