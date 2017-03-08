@@ -1,13 +1,7 @@
 console.log("APP.JS");
-var app = angular.module("GymApp", []);
+var app = angular.module("GymApp", ['ui.router']);
 
 app.controller("MainController", ['$http', '$scope', function($http, $scope){
-  $scope.workout = [
-    'workout 1',
-    'workout 2',
-    'workout 3',
-    'workout 4',
-    'workout 4'
-  ];
+
 
 }]);
