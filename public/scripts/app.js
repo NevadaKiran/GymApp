@@ -6,7 +6,7 @@ function WorkoutController($scope, $http){
   var self = this;
 }
 
-function createWorkout(workout) {
+function createWorkout($scope, $state, $http) {
   console.log("createWorkout");
 // if to add users, would add it above
     self.newWorkout = {

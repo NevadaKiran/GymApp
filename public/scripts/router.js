@@ -16,19 +16,15 @@ function WorkoutRouter($stateProvider, $urlRouterProvider){
   })
   .state('createWorkout', {
     url: '/workout/:id/meme',
-    templateUrl:'/partials/createMeme.html',
-    controller: 'MemeController as meme'
+    templateUrl:'/partials/createWorkout.html',
+    controller: 'WorkoutController as workout'
   })
 
-  .state('login', {
-    url: '/login',
-    templateUrl: '/partials/login.html',
-    controller: 'AuthController as auth'
-  })
+
   .state('user', {
     url: '/user',
     templateUrl: '/partials/user.html',
-    controller: 'MemeController as meme',
+    controller: 'UserController as user',
     params: {userId: null}
   })
 
