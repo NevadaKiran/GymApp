@@ -1,18 +1,20 @@
 console.log("CONTROLLER HIT");
 var express = require('express');
 var router = express.Router();
+var Workout = require('../models/workout.js');
+
+var http = require('http');
+
 var mongoose = require('mongoose')
-var workout = require('../models/workout.js');
+// var workout = require('../models/workout.js');
 
 // index routes
-router.get('/', function(req, res){
-  res.render("workout/index.hbs",{
-    workout: workout
+router.get('/', function(req,res) {
+
+  res.render('workout/index', {
+    todos: data.seededWorkouts
   });
 });
-
-
-
 
 
 

@@ -1,7 +1,19 @@
 console.log("APP.JS");
-var app = angular.module("GymApp", ['ui.router']);
+var app = angular.module("gym-app", ['ui.router'])
+.controller('workoutController', workoutController)
 
-app.controller("MainController", ['$http', '$scope', function($http, $scope){
+function WorkoutController($scope, $http){
+  var self = this;
+
+}
+
+function createWorkout(newWorkoutInfo, workoutId) {
+// if to add users, would add it above
+    self.newWorkout = {
+     day: newWorkoutInfo.day,
+
+    }
+  }
 
 
-}]);
+module.exports = router;

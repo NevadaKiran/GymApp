@@ -1,10 +1,21 @@
+console.log("SEEDS");
+
+var seeder = require('mongoose-seed');
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost:3000');
+var Workout = require('../models/workout.js');
 
-var Workout = require('../models/user');
+seeder.connect(process.env.MONGODB_URI || 'mongodb://localhost/gym-app-app', function(){
+  //loads workout in theory
+  seeder.loadModels(['./models/workout.js']);
 
-
-mongoose.Promise = global.Promise;
+  //clear collection
+  seeder.clearModels(['Workout'], function(){
+    //pupulates data to collection
+    seeder.populateModels(workoutData, function(){
+      console.log('got me a seeds workout');
+    });
+  });           //this is from the project3
+});
 
 
 Workout.remove({}, function(err){
@@ -17,27 +28,27 @@ Workout.remove({}, function(err){
 
 // create new Workout
 var monday = new workout({
-  warmup: '',
-  heavy: '',
-  cooldown: ''
+  warmup: 'Ten Minute Run',
+  heavy: 'Squats',
+  cooldown: 'Ten Minute Walk'
 });
 
 var tuesday = new workout({
-  warmup: '',
-  heavy: '',
-  cooldown: ''
+  warmup: 'Then Minute Shadow Boxing',
+  heavy: 'Back and Chest',
+  cooldown: 'Half Mile Swim'
 });
 
 var wednesday = new workout({
-  warmup: '',
-  heavy: '',
-  cooldown: ''
+  warmup: 'Jump Rope',
+  heavy: 'Bicepts, Tricepts',
+  cooldown: 'Half Mile Swim'
 });
 
 var thursday = new workout({
-  warmup: '',
-  heavy: '',
-  cooldown: ''
+  warmup: 'slow jog',
+  heavy: 'sprints',
+  cooldown: 'Ten Minute Walk'
 });
 
 var friday = new workout({

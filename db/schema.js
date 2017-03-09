@@ -3,9 +3,6 @@ var Schema = mongoose.Schema;
 
 mongoose.Promise = global.Promise;
 
-var WorkoutSchema = new Schema({
-  name: String
-});
 
 var WorkoutSchema = new Schema({
   warmup: String,
