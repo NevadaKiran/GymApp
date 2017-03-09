@@ -20,7 +20,7 @@ app.use(logger('dev'))
 
 //trying to solve the "requires middleware functions" error
 // app.use('/router', router);
-var workoutController = require('./controllers/workoutController.js');
+var workoutController = require('./controllers/workoutsController.js');
 
 app.use(express.static('public'));
 app.set("view engine", "hbs");

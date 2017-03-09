@@ -23,7 +23,7 @@ WorkoutSchema.pre('save', function(next){
 });
 
 
-var WorkoutModel = mongoose.model("Workout", WorkoutSchema)
+var WorkoutModel = mongoose.model("Workout", WorkoutSchema);
 
 module.exports = {
   workout: WorkoutModel

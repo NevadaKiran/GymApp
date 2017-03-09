@@ -6,16 +6,22 @@ var Workout = require('../models/workout.js');
 var http = require('http');
 
 var mongoose = require('mongoose')
-// var workout = require('../models/workout.js');
+// var workout = require('../model/workout.js');
 
 // index routes
 router.get('/', function(req,res) {
+    res.render("partials/show.html",{
+      // console.log(workout);
+    workout: workout
+    });
 
-  res.render('workout/index', {
-    todos: data.seededWorkouts
   });
+
+  router.get('/new', function(req, res){
+	res.render("partials/new.html");
 });
 
+// console.log(workout);
 
 
 

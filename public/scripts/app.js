@@ -5,7 +5,18 @@ var app = angular.module("gym-app", ['ui.router'])
 function WorkoutController($scope, $http){
   var self = this;
 
+  getSavedWorkouts(){
+    $http.get(`/workout/`)
+  }
+
+
+
 }
+
+
+
+
+
 
 function createWorkout(newWorkoutInfo, workoutId) {
 // if to add users, would add it above

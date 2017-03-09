@@ -52,9 +52,9 @@ var thursday = new workout({
 });
 
 var friday = new workout({
-  warmup: '',
-  heavy: '',
-  cooldown: ''
+  warmup: 'Wrestle a bear',
+  heavy: 'Climb a mountain',
+  cooldown: 'Sky Dive'
 });
 
 // save the wokouts

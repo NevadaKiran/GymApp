@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+workout<!DOCTYPE html>
 <html ng-app="gym-app">
   <head>
     <meta charset="utf-8">
@@ -15,12 +15,57 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css?family=Fira+Sans|Open+Sans" rel="stylesheet">
     <link rel="stylesheet" href="css/main.css">
-    <h1>Gym App</h1><h2>Get You Your Workout On</h2>
+    <h1>Gym App</h1><h2>Pliz Du Sports Naw</h2>
+
   </head>
 {{2 + 2}}
   <body ng-controller="WorkoutController as workout">
-    <div class="">
-      {{workout}}
+    <h1>{{home.currentUser.id}}</h1>
+
+<div>
+  <button ng-click="showWorkoutForm = !showWorkoutForm"> Create Your Workout </button>
+  <button ng-click="showEditForm = !showEditForm">Edit</button>
+
+  <button ng-click="workout.showWorkout(workouts)">Show Current Plan</button>
+  <div class="allworkouts" ng-repeat=" workout in workout.workouts">
+    <h1 ng-click="workout.showWorkout()"> {{workout.day}}, {{workout.id}}</h1>
+
+    <button ng-click="workout.deleteWorkout(workout)" class="delete_button"> Delete </button>
+    <button ng-click="workout.editPage()" class="edit_button">Edit</button>
+    <button ng-click="workout.showWorkout(workout.id)" class="review_button"> Review</button>
+  </div>
+
+  <!-- Create workout Form  -->
+    <div ng-show="showWorkoutForm">
+      <form ng-submit="workout.createWorkout()">
+        <input ng-model="newWorkout.day" type="text" placeholder="Workout Day">
+        <input ng-model="newWorkout.warmup" type="text" placeholder="warmup">
+        <input ng-model="newWorkout.heavy" type="text" placeholder="heavy">
+        <input ng-model="newWorkout.cooldown" type="text" placeholder="cooldown"><br>
+        //image of cool workout that matches to go here<br>
+        <button ng-click="workout.createWorkout(home.currentUser.id, newWorkout)" type="submit"> Add Workout </button>
+      </form>
     </div>
+
+
+    <div>
+  <button ng-click="showEditForm = !showEditForm">  Edit  </button>
+      <div ng-show="showEditForm">
+        <form ng-submit="workout.updateWorkout()">
+          <input ng-model="editWorkout.day" type="text" placeholder="day">
+          <input ng-model="editWorkout.warmup" type="text" placeholder="warmup">
+          <input ng-model="editWorkout.heavy" type="text" placeholder="heavy">
+          <input ng-model="editWorkout.cooldown" type="text" placeholder="cooldown">
+
+          <button ng-click="workout.updateWorkout()" type="submit"> Edit Workout </button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+
+<h1>{{home.currentUser.id}}</h1>
+
+
   </body>
 </html>
