@@ -9,20 +9,33 @@ var mongoose = require('mongoose')
 // var workout = require('../model/workout.js');
 
 // index routes
-router.get('/', function(req,res) {
-    res.render("partials/show.html",{
-      // console.log(workout);
-    workout: workout
+router.get('/', function(req, res) {
+  Workout.find()
+    .exec(function(err, workouts) {
+      if (err) { console.log(err); }
+      res.json({
+        workouts
+      });
     });
+});
 
-  });
 
   router.get('/new', function(req, res){
 	res.render("partials/new.html");
 });
 
+router.post('/', function(req, res){
+  var workout = new Workout({
+    day: req.body.day,
+    warmup: req.body.warmup,
+    heavy: req.body.heavy,
+    cooldown: req.body.cooldown
+  });
+  workout.save;
+  res.json(workout)
+})
 // console.log(workout);
-
+// router.put('/',)
 
 
 

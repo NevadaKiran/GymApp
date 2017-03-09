@@ -1,12 +1,18 @@
 var express = require('express');
-var app = express();
+
 var logger = require('morgan');
 
 // var router = express.Router()
-var hbs = require('hbs')
+
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 var json = require('json');
+
+//CONTROLLERS
+var usersController = require('./controllers/users.js');
+var seedsController = require('./db/seeds.js');
+var workoutsController = require('./controllers/workoutsController.js')
+var app = express();
 
 // MIDDLE WARES
 app.use(logger("dev"));
@@ -20,17 +26,18 @@ app.use(logger('dev'))
 
 //trying to solve the "requires middleware functions" error
 // app.use('/router', router);
-var workoutController = require('./controllers/workoutsController.js');
+// var workoutController = require('./controllers/workoutsController.js');
 
 app.use(express.static('public'));
-app.set("view engine", "hbs");
 
-app.use('/workout', workoutController)
+
+app.use('/workouts', workoutsController)
+app.use('/users', usersController)
+app.use('/seeds', seedsController);
 
 // CONTROLLERS
 
 // var router = require('/router.js')
-
 
 
 

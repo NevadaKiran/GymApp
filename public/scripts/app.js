@@ -5,8 +5,8 @@ var app = angular.module("gym-app", ['ui.router'])
 function WorkoutController($scope, $http){
   var self = this;
 
-  getSavedWorkouts(){
-    $http.get(`/workout/`)
+  function getSavedWorkouts(){
+    $http.get(`/workout/${currentUser}`)
   }
 
 
