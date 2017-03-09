@@ -2,23 +2,23 @@ console.log("CONTROLLER HIT");
 var express = require('express');
 var router = express.Router();
 var Workout = require('../models/workout.js');
+var User = require('../models/user.js')
 
 var http = require('http');
-
-var mongoose = require('mongoose')
+var mongoose = require('mongoose');
 // var workout = require('../model/workout.js');
 
-// index routes
+// index routes THIS BLOCK SHOULD DEAL WITH SEEDED WORKOUTS
 router.get('/', function(req, res) {
-  Workout.find()
+  console.log("seeded workout");
+  Workout.find({})
     .exec(function(err, workouts) {
       if (err) { console.log(err); }
-      res.json({
-        workouts
-      });
+      res.json({workout});
     });
 });
 
+// BELOW FOR USER CREATED WORKOUTS
 
   router.get('/new', function(req, res){
 	res.render("partials/new.html");
