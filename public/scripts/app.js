@@ -5,7 +5,19 @@ var app = angular.module("gym-app", ['ui.router'])
 function WorkoutController($scope, $http){
   var self = this;
 
+
+  var saveWorkout = function(){
+    console.log("saveWorkout");
+    var day = $('.day')
+    var warmup = $('.warmup')
+    var heavy = $('.heavy')
+    var cooldown =$('.cooldown')
+  }
+
+
+
   function getSavedWorkouts(){
+    console.log("get saved workouts");
     $http.get(`/workout/${currentUser}`)
   }
 
