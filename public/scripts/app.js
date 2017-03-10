@@ -11,10 +11,13 @@ angular.module('gym-app')
 function WorkoutController($http){
 
   function test(){
-    console.log("THIS IS WORKING");
-  $http.get('/workouts', function (response) {
+    console.log("so far so good");
+  $http.get('/workouts')
+  .then(function (response) {
           console.log(response);
-          })
+          self.fitWeek = response.data;
+          console.log(fitWeek);
+        })
           }
   // console.log(workout);
  //  this.workouts = fitWeek;

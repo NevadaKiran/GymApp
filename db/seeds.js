@@ -19,13 +19,13 @@ var Workout = require('../models/workout.js');
 // });
 
 
-router.get('/', function(req, res){
+// router.get('/', function(req, res){
 
 
 
-Workout.remove({}, function(err){
-  console.log(err);
-});
+// Workout.remove({}, function(err){
+//   console.log(err);
+// });
 
 module.exports =[
 {
@@ -106,6 +106,6 @@ module.exports =[
 //   console.log('Workout created!');
 // });
 
-})
-module.exports = router;
+// })
+// module.exports = router;
 // module.exports = fitWeek;

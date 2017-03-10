@@ -12,7 +12,7 @@ var mongoose = require('mongoose');
 // index routes THIS BLOCK SHOULD DEAL WITH SEEDED WORKOUTS
 router.get('/', function(req, res) {
   console.log("seeded workout");
-//  Workout.find({})
+  console.log(fitWeek);    //  Workout.find({})
   res.json({fitWeek: fitWeek})
     // .exec(function(err, workouts) {
     //   if (err) { console.log(err); }

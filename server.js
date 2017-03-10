@@ -10,7 +10,7 @@ var json = require('json');
 
 //CONTROLLERS
 var usersController = require('./controllers/users.js');
-var seedsController = require('./db/seeds.js');
+// var seedsController = require('./db/seeds.js');
 var workoutsController = require('./controllers/workoutsController.js')
 var app = express();
 
@@ -30,16 +30,9 @@ app.use(logger('dev'))
 
 app.use(express.static('public'));
 
-
 app.use('/workouts', workoutsController)
 app.use('/users', usersController)
-app.use('/seeds', seedsController);
-
-// CONTROLLERS
-
-// var router = require('/router.js')
-
-
+// app.use('/seeds', seedsController);
 
 
 // LISTENERS
