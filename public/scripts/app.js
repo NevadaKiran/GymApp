@@ -1,19 +1,42 @@
-console.log("APP.JS");
 angular.module('gym-app')
 .controller('WorkoutController', WorkoutController)
 
-function WorkoutController($scope, $http){
-  var self = this;
-}
 
-function createWorkout($scope, $state, $http) {
-  console.log("createWorkout");
-// if to add users, would add it above
-    self.newWorkout = {
-     day: newWorkoutInfo.day
+
+
+
+// function WorkoutController($scope, $http){
+//   console.log("APP.JS");
+//   var self = this;
+function WorkoutController($http){
+
+  function test(){
+    console.log("THIS IS WORKING");
+  $http.get('/workouts', function (response) {
+          console.log(response);
+          })
+          }
+  // console.log(workout);
+ //  this.workouts = fitWeek;
+ //  this.show = function(workout){
+ //   this.workout = workout;
+ // };
+// console.log("fitWeek");
+
+function createWorkout(workout) {
+  $http.get('/')
+  .then(function(response){
+    self.fitWeek = response.data;
+    console.log(self.fitWeek);
+  })
+    console.log("createWorkout");
+    // if to add users, would add it above
+     self.newWorkout = {
+        day: newWorkoutInfo.day
     }
   }
-
+  this.test = test;
+}
 //
 //   function saveWorkout(){
 //     console.log("saveWorkout");

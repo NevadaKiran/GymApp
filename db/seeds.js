@@ -27,57 +27,85 @@ Workout.remove({}, function(err){
   console.log(err);
 });
 
-// create new Workout
-var monday = new Workout({
+module.exports =[
+{
+  day: 'Monday',
   warmup: 'Ten Minute Run',
   heavy: 'Squats',
   cooldown: 'Ten Minute Walk'
-});
-
-var tuesday = new Workout({
-  warmup: 'Then Minute Shadow Boxing',
+},{
+  day: 'Tuesday',
+  warmup: 'Ten Minute Shadow Boxing',
   heavy: 'Back and Chest',
   cooldown: 'Half Mile Swim'
-});
-
-var wednesday = new Workout({
+},{
+  day: 'wednesday',
   warmup: 'Jump Rope',
   heavy: 'Bicepts, Tricepts',
   cooldown: 'Half Mile Swim'
-});
-
-var thursday = new Workout({
+},{
+  day: 'thursday',
   warmup: 'slow jog',
   heavy: 'sprints',
   cooldown: 'Ten Minute Walk'
-});
-
-var friday = new Workout({
+},{
+  day:'friday',
   warmup: 'Wrestle a bear',
   heavy: 'Climb a mountain',
   cooldown: 'Sky Dive'
-});
-
-// save the wokouts
-monday.save(function(err) {
-  if (err) console.log(err);
-  console.log('Workout created!');
-});
-
-tuesday.save(function(err) {
-  if (err) console.log(err);
-  console.log('Workout created!');
-});
-
-thursday.save(function(err) {
-  if (err) console.log(err);
-  console.log('Workout created!');
-});
-
-friday.save(function(err) {
-  if (err) console.log(err);
-  console.log('Workout created!');
-});
+}]
+// create new Workout
+// var monday = new Workout({
+//   warmup: 'Ten Minute Run',
+//   heavy: 'Squats',
+//   cooldown: 'Ten Minute Walk'
+// });
+//
+// var tuesday = new Workout({
+//   warmup: 'Then Minute Shadow Boxing',
+//   heavy: 'Back and Chest',
+//   cooldown: 'Half Mile Swim'
+// });
+//
+// var wednesday = new Workout({
+//   warmup: 'Jump Rope',
+//   heavy: 'Bicepts, Tricepts',
+//   cooldown: 'Half Mile Swim'
+// });
+//
+// var thursday = new Workout({
+//   warmup: 'slow jog',
+//   heavy: 'sprints',
+//   cooldown: 'Ten Minute Walk'
+// });
+//
+// var friday = new Workout({
+//   warmup: 'Wrestle a bear',
+//   heavy: 'Climb a mountain',
+//   cooldown: 'Sky Dive'
+// });
+//
+// // save the wokouts
+// monday.save(function(err) {
+//   if (err) console.log(err);
+//   console.log('Workout created!');
+// });
+//
+// tuesday.save(function(err) {
+//   if (err) console.log(err);
+//   console.log('Workout created!');
+// });
+//
+// thursday.save(function(err) {
+//   if (err) console.log(err);
+//   console.log('Workout created!');
+// });
+//
+// friday.save(function(err) {
+//   if (err) console.log(err);
+//   console.log('Workout created!');
+// });
 
 })
 module.exports = router;
+// module.exports = fitWeek;

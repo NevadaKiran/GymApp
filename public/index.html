@@ -21,6 +21,7 @@ workout<!DOCTYPE html>
 {{2 + 2}}
   <body ng-controller="WorkoutController as workout">
     <h1>{{home.currentUser.id}}</h1>
+    <button ng-click="workout.test()" type="button" name="button">test</button>
 
 <div>
   <button ng-click="showWorkoutForm = !showWorkoutForm"> Create Your Workout </button>
@@ -34,7 +35,15 @@ workout<!DOCTYPE html>
     <button ng-click="workout.editPage()" class="edit_button">Edit</button>
     <button ng-click="workout.showWorkout(workout.id)" class="review_button"> Review</button>
   </div>
-
+  {{workout}}{{fitWeek}}
+    <table class="table">
+    <thead>
+      <tr>
+        <th>day: {{workout.fitWeek.day}}</th><br>
+        <th>heavy:{{workout.fitWeek.heavy}}</th>
+        <th></th>
+      </tr>
+    </thead>
   <!-- Create workout Form  -->
     <div ng-show="showWorkoutForm">
       <form ng-submit="workout.createWorkout()">
