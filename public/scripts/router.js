@@ -15,7 +15,7 @@ function WorkoutRouter($stateProvider, $urlRouterProvider){
     controller: 'WorkoutController as workout'
   })
   .state('createWorkout', {
-    url: '/workout/:id/meme',
+    url: '/workout',
     templateUrl:'/partials/createWorkout.html',
     controller: 'WorkoutController as workout'
   })

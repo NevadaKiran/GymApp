@@ -1,0 +1,27 @@
+<div class="login" ng-controller="RandomWorkoutController as rand">
+  <h1>Login</h1>
+  <!-- ========= Error display ========= -->
+    <section class="errMsgContainer">
+      <div class="errMsg">
+        <h4>Incorrect username or password.</h4>
+      </div>
+    </section>
+
+
+  <!-- ================================== -->
+  <form ng-submit="auth.login(userInfo)">
+    <div>
+      <input type="text" ng-model="userInfo.username" placeholder="username">
+    </div>
+    <div>
+      <input type="password" ng-model="userInfo.password" placeholder="password">
+    </div>
+    <button type="submit">Login</button>
+  </form>
+  <br>
+  <p id="notUser" ui-sref="signup">Not A User?</p>
+  <br>
+  <div class="loginWorkouts" ng-repeat="workout in rand.shuffledWorkoutsData | limitTo: 2">
+    <img ng-src="{{workout.url}}" alt="{{workout.name}}">
+  </div>
+</div>

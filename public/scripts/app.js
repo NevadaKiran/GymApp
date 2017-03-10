@@ -9,7 +9,6 @@ angular.module('gym-app')
 //   console.log("APP.JS");
 //   var self = this;
 function WorkoutController($http){
-
   function test(){
     console.log("so far so good");
   $http.get('/workouts')
@@ -17,14 +16,16 @@ function WorkoutController($http){
           console.log(response);
           self.fitWeek = response.data;
           console.log(fitWeek);
+          // res.render(fitWeek)
         })
-          }
-  // console.log(workout);
- //  this.workouts = fitWeek;
- //  this.show = function(workout){
- //   this.workout = workout;
- // };
-// console.log("fitWeek");
+        // $scope.test = fitWeek
+}
+          // console.log(workout);
+         //  this.workouts = fitWeek;
+         //  this.show = function(workout){
+         //   this.workout = workout;
+         // };
+        // console.log("fitWeek");
 
 function createWorkout(workout) {
   $http.get('/')
