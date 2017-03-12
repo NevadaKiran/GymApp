@@ -5,30 +5,10 @@ var seeder = require('mongoose-seed');
 var mongoose = require('mongoose');
 var Workout = require('../models/workout.js');
 
-// seeder.connect(process.env.MONGODB_URI || 'mongodb://localhost/gym-app', function(){
-//   //loads workout in theory
-//   seeder.loadModels(['./models/workout.js']);
-//
-//   //clear collection
-//   seeder.clearModels(['Workout'], function(){
-//     //pupulates data to collection
-//     seeder.populateModels(workoutData, function(){
-//       console.log('got me a seeds workout');
-//     });
-//   });           //this is from the project3
-// });
-
-
-// router.get('/', function(req, res){
-
-
-
-// Workout.remove({}, function(err){
-//   console.log(err);
-// });
 
 module.exports =[
 {
+  id: 1,
   day: 'Monday',
   warmup: 'Ten Minute Run',
   heavy: 'Squats',

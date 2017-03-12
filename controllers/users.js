@@ -5,6 +5,17 @@ var Workout = require('../models/workout.js');
 var User = require('../models/user.js');
 // var authHelpers = require('../helpers/auth.js');
 
+router.get('/', function(req, res) {
+  console.log("seeded workout");
+  res.json({fitWeek: fitWeek})
+  User.find
+  // console.log(fitWeek);
+    // .exec(function(err, workouts) {
+    //   if (err) { console.log(err); }
+    //   res.json({workout});
+    // });
+});
+
 
 router.post('/', function(req, res){
 
