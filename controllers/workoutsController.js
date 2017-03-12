@@ -4,7 +4,7 @@ var router = express.Router();
 var Workout = require('../models/workout.js');
 var User = require('../models/user.js')
 var fitWeek = require('../db/seeds.js')
-
+// var fitDay =require('../db/seeds.js')
 var http = require('http');
 var mongoose = require('mongoose');
 
@@ -20,11 +20,19 @@ router.get('/', function(req, res) {
     // });
 });
 
-router.get('/:id', function(req, res){
-  console.log(":ID");
-  var showWorkout = workouts[req.params.id]
-  console.log(req.params);
-})
+    router.get('/:id', function(req, res){
+      console.log("ID ID ID");
+      // fitWeek.findById(req.params.id)
+      // var fitDay = fitWeek[req.body.id];
+      // res.json({fitDay: fitDay})
+      Workout.find({})
+      .exec(function(err, fitDay){
+        if(err){ console.log(err); }
+        res.json({fitDay});
+      })
+    });
+
+
 // BELOW FOR USER CREATED WORKOUTS
 
 //   router.get('/new', function(req, res){

@@ -21,41 +21,22 @@ workout<!DOCTYPE html>
 <body ng-controller="WorkoutController as workout">
 
 <div class="">
-        <!-- <ul ng-repeat="workouts in workout.fitWeek">
-          <li>DAY 1: {{workouts.[0]}}</li>
-          <li>DAY 2: {{workouts.fitWeek[1]}}</li>
-          <li>DAY 3: {{workout.fitWeek[2]}}</li>
-          <li>DAY 4: {{workout.fitWeek[3]}}</li>
-          <li>DAY 5: {{workout.fitWeek[4]}}</li>
- -->
-
-      <!-- <div ng-show="showWorkoutForm">
-          <form ng-submit="workout.createWorkout()">
-           <input ng-model="newWorkout.day" type="text" placeholder="Workout Day">
-            <input ng-model="newWorkout.warmup" type="text" placeholder="warmup">
-            <input ng-model="newWorkout.heavy" type="text" placeholder="heavy">
-            <input ng-model="newWorkout.cooldown" type="text" placeholder="cooldown"><br>
-                //image of cool workout that matches to go here<br>
-            <button ng-click="workout.createWorkout(home.currentUser.id, newWorkout)" type="submit"> Add Workout </button>
-          </form>
-        </div> -->
-
 
 </div>
 
-<button ng-click="workout.test()" type="button" name="button">DAY</button>
+<button ng-click="workout.workoutById()" type="button" name="button">DAY</button>
 <h3>Day</h3>
-    <ul ng-repeat="days in workout.fitWeek" class="">
-      <li>DAY 1: {{days[0]}}</li>
+    <ul ng-repeat="days in workout.fitDay" class="">
+      <li>DAY 1: {{days.monday}}</li>
       <li>DAY 2: {{days[1]}}</li>
       <li>DAY 3: {{days[2]}}</li>
       <li>DAY 4: {{days[3]}}</li>
-      <li>DAY 5: {{days[4]}}</li>
+      
     </ul>
 
 
 
-  <button ng-click="workout.test()" type="button" name="button">WEEK</button>
+  <button ng-click="workout.week()" type="button" name="button">WEEK</button>
 <h3>Week</h3>
 <ul ng-repeat="days in workout.fitWeek" class="">
   <li>DAY 1: {{days[0]}}</li>

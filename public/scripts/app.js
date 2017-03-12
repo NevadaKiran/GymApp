@@ -6,27 +6,27 @@ function WorkoutController($http){
   var controller = this;
 
   // this out here is workout controller
-  function test(){
-    console.log(this);
+  function week(){
+
     console.log("so far so good");
   $http.get('/workouts')
   .then(function (response) {
           console.log(response);
           // this in here actually refers to $http
           controller.fitWeek = response.data;
-          // console.log(fitWeek);
-          // res.render(fitWeek)
         })
+          // console.log(fitWeek);
         // $scope.week = fitWeek
+        //FITWEEK MEANS NOTHING HERE
 }
-function workoutById(){
-  console.log("workoutById ");
-  console.log(this);
-$http.get('/workouts/:id')
-.then(function(response){
-  console.log(response);
-  controller.fitDay = response.data;
-})
+function workoutById(rep, res){
+    console.log("workoutById ");
+    console.log(this);
+  $http.get('/workouts/:id')
+  .then(function(response){
+    console.log(response);
+    controller.fitDay = response.data;
+  })
 
 }
 
@@ -49,7 +49,7 @@ function createWorkout(workout) {
         day: newWorkoutInfo.day
     }
   }
-  this.test = test;
+  this.week = week;
 }
 //
 //   function saveWorkout(){
