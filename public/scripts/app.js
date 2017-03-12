@@ -2,24 +2,34 @@ angular.module('gym-app')
 .controller('WorkoutController', WorkoutController)
 
 
-
-
-
-// function WorkoutController($scope, $http){
-//   console.log("APP.JS");
-//   var self = this;
 function WorkoutController($http){
+  var controller = this;
+
+  // this out here is workout controller
   function test(){
+    console.log(this);
     console.log("so far so good");
   $http.get('/workouts')
   .then(function (response) {
           console.log(response);
-          self.fitWeek = response.data;
-          console.log(fitWeek);
+          // this in here actually refers to $http
+          controller.fitWeek = response.data;
+          // console.log(fitWeek);
           // res.render(fitWeek)
         })
-        // $scope.test = fitWeek
+        // $scope.week = fitWeek
 }
+function workoutById(){
+  console.log("workoutById ");
+  console.log(this);
+$http.get('/workouts/:id')
+.then(function(response){
+  console.log(response);
+  controller.fitDay = response.data;
+})
+
+}
+
           // console.log(workout);
          //  this.workouts = fitWeek;
          //  this.show = function(workout){
@@ -30,12 +40,12 @@ function WorkoutController($http){
 function createWorkout(workout) {
   $http.get('/')
   .then(function(response){
-    self.fitWeek = response.data;
-    console.log(self.fitWeek);
+    controller.fitWeek = response.data;
+    console.log(controller.fitWeek);
   })
     console.log("createWorkout");
     // if to add users, would add it above
-     self.newWorkout = {
+     controller.newWorkout = {
         day: newWorkoutInfo.day
     }
   }

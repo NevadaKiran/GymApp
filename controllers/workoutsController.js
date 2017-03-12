@@ -7,20 +7,24 @@ var fitWeek = require('../db/seeds.js')
 
 var http = require('http');
 var mongoose = require('mongoose');
-// var workout = require('../model/workout.js');
+
 
 // index routes THIS BLOCK SHOULD DEAL WITH SEEDED WORKOUTS
 router.get('/', function(req, res) {
   console.log("seeded workout");
-  // console.log(workout);    //  Workout.find({})
   res.json({fitWeek: fitWeek})
+  // console.log(fitWeek);
     // .exec(function(err, workouts) {
     //   if (err) { console.log(err); }
     //   res.json({workout});
     // });
 });
 
-
+router.get('/:id', function(req, res){
+  console.log(":ID");
+  var showWorkout = workouts[req.params.id]
+  console.log(req.params);
+})
 // BELOW FOR USER CREATED WORKOUTS
 
 //   router.get('/new', function(req, res){
