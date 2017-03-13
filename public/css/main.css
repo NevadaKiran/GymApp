@@ -1,5 +1,29 @@
+html, body {
+  /*background-image: url('images/advancedtriangle.jpg')*/
+  background-image:
+      url('images/arnold.jpeg'),
+      url('images/exercize.jpeg'),
+      url('images/advancedtriangle.jpg');
+  background-repeat: repeat-x,repeat;;
+}
+
 h1{
+  color: blue;
   text-align: center;
+}
+h2{
+  color: #2F4F4F;
+  text-align: center;
+  background: #808080;
+}
+h3 {
+  color: blue;
+}
+span {
+  color: #8b0000;
+  background: #808080;
+  /*padding: 5px;
+  margin: 10px;*/
 }
 header nav{
   letter-spacing: .1em;

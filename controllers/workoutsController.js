@@ -11,14 +11,9 @@ var mongoose = require('mongoose');
 
 // index routes THIS BLOCK SHOULD DEAL WITH SEEDED WORKOUTS
 router.get('/', function(req, res) {
-  
+
   console.log("seeded workout");
   res.json({fitWeek: fitWeek})
-  // console.log(fitWeek);
-    // .exec(function(err, workouts) {
-    //   if (err) { console.log(err); }
-    //   res.json({workout});
-    // });
 });
 
     router.get('/:id', function(req, res){
@@ -26,33 +21,25 @@ router.get('/', function(req, res) {
       console.log(req.params.id);
 
       res.json({fitDay: fitWeek[req.params.id]})
-      // Workout.findOne({day:"friday"})
-      // var fitDay = fitWeek[req.body.id];
-      // res.json({fitDay: fitDay})
-      // Workout.find({})
-      // .exec(function(err, fitDay){
-      //   if(err){ console.log(err); }
-      //   res.json({Workout});
-      // })
     });
 
 
 // BELOW FOR USER CREATED WORKOUTS
 
-//   router.get('/new', function(req, res){
-// 	res.render("partials/new.html");
-// });
+  router.get('/new', function(req, res){
+	res.render("/partials/createWorkout.html");
+});
 
-// router.post('/', function(req, res){
-//   var workout = new Workout({
-//     day: req.body.day,
-//     warmup: req.body.warmup,
-//     heavy: req.body.heavy,
-//     cooldown: req.body.cooldown
-//   });
-//   workout.save;
-//   res.json(workout)
-// })
+router.post('/', function(req, res){
+  var workout = new Workout({
+    day: req.body.day,
+    warmup: req.body.warmup,
+    heavy: req.body.heavy,
+    cooldown: req.body.cooldown
+  });
+  workout.save;
+  res.json(workout)
+})
 // console.log(workout);
 // router.put('/',)
 

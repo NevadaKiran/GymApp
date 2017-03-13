@@ -2,9 +2,8 @@ angular.module('gym-app')
 .controller('WorkoutController', WorkoutController)
 
 
-function WorkoutController($http){
+function WorkoutController($http, $scope){
   var controller = this;
-
   // this out here is workout controller
   function week(){
   $http.get('/workouts')
@@ -13,10 +12,14 @@ function WorkoutController($http){
           // this in here actually refers to $http
           controller.fitWeek = response.data;
         })
-          // console.log(fitWeek);
-        // $scope.week = fitWeek
-        //FITWEEK MEANS NOTHING HERE
 }
+
+function createWorkout($scope) {
+
+  $scope.addPost = function(){
+    $scope.posts.push({day: $scope.day });
+  }
+
 function workoutById(req, res){
     console.log("workoutById ");
     console.log(this);
@@ -30,44 +33,31 @@ function workoutById(req, res){
 
 }
 
+// function($scope){
+//   $scope.posts = [
+//   {title: 'post 1', upvotes: 5},
+//   {title: 'post 2', upvotes: 2},
+//   {title: 'post 3', upvotes: 15},
+//   {title: 'post 4', upvotes: 9},
+//   {title: 'post 5', upvotes: 4}
+// ];
+// $scope.addPost = function(){
+//   $scope.posts.push({title: $scope.title, upvotes: 0});
+//   $scope.title = '';
+//   if(!$scope.title || $scope.title === '') { return; }
+// };
+// };
 
-function createWorkout(newWorkout) {
-  // $http.get('/')
-  // .then(function(response){
-  console.log("controller.fitWeek");
-    controller.fitWeek.push(newWorkout);
-    console.log(controller.fitWeek);
-  // })
-    console.log("createWorkout");
+
+
+
+
+  // console.log("controller.fitWeek");
+  //   controller.fitWeek.push(newWorkout);
+  //   console.log(controller.fitWeek);
+  //   console.log("createWorkout");
 
   }
   this.week = week;
+  // this.fitDay = fitDay;
 }
-//
-//   function saveWorkout(){
-//     console.log("saveWorkout");
-//     var day = $('.day')
-//     var warmup = $('.warmup')
-//     var heavy = $('.heavy')
-//     var cooldown =$('.cooldown')
-//   }
-//
-//
-//
-//   function getSavedWorkouts(){
-//     console.log("get saved workouts");
-//     $http.get(`/workout/${currentUser}`)
-//   }
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-
-// module.exports = router;

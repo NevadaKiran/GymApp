@@ -8,4 +8,33 @@ USER SHOULD BE ABLE TO
 
 - User should be able to delete any of the workouts should the user realize that the user just can't make it.  We are coders not gym rats.
 
-- User should also be somewhat impressed by the understated, yet incredibly visually pleasing layout and colors of the page. 
+- User should also be somewhat impressed by the understated, yet incredibly visually pleasing layout and colors of the page.
+
+
+
+============================================
+Apps.js trash
+//
+//   function saveWorkout(){
+//     console.log("saveWorkout");
+//     var day = $('.day')
+//     var warmup = $('.warmup')
+//     var heavy = $('.heavy')
+//     var cooldown =$('.cooldown')
+//   }
+//
+//
+//
+//   function getSavedWorkouts(){
+//     console.log("get saved workouts");
+//     $http.get(`/workout/${currentUser}`)
+//   }
+//
+//
+//
+//
+//
+//
+//
+//
+//
