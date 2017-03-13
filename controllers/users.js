@@ -9,11 +9,6 @@ router.get('/', function(req, res) {
   console.log("seeded workout");
   res.json({fitWeek: fitWeek})
   User.find
-  // console.log(fitWeek);
-    // .exec(function(err, workouts) {
-    //   if (err) { console.log(err); }
-    //   res.json({workout});
-    // });
 });
 
 

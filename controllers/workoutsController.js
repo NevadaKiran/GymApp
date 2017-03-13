@@ -1,4 +1,5 @@
 console.log("CONTROLLER HIT");
+
 var express = require('express');
 var router = express.Router();
 var Workout = require('../models/workout.js');
@@ -8,6 +9,7 @@ var fitWeek = require('../db/seeds.js')
 var http = require('http');
 var mongoose = require('mongoose');
 
+// var fitDay = fitWeek(req.params.id)
 
 // index routes THIS BLOCK SHOULD DEAL WITH SEEDED WORKOUTS
 router.get('/', function(req, res) {
@@ -23,7 +25,15 @@ router.get('/', function(req, res) {
       res.json({fitDay: fitWeek[req.params.id]})
     });
 
+
+
 // BELOW FOR USER CREATED WORKOUTS
+router.get('/', function(req, res) {
+  console.log("seeded workout");
+  res.json({fitWeek: fitWeek})
+  User.find
+});
+
   router.get('/new', function(req, res){
 	res.render("/partials/createWorkout.html");
 });
@@ -48,7 +58,7 @@ router.put('/:id', function(req, res) {
 });
 
 router.post('/:id', function(req, res){
-  var workout = new Workout({
+  var fitDay = new fitDay({
     day: req.body.day,
     warmup: req.body.warmup,
     heavy: req.body.heavy,
