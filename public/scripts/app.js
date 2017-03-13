@@ -1,3 +1,4 @@
+
 angular.module('gym-app')
 .controller('WorkoutController', WorkoutController)
 
@@ -14,7 +15,7 @@ function WorkoutController($http, $scope){
         })
 }
 
-function createWorkout($scope) {
+function addWorkout($scope) {
 
   $scope.addWorkout = function(){
     $scope.workouts.push({day: $scope.day });

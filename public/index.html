@@ -35,7 +35,7 @@
         </form>
 
 
-        <ui-view ng-click="addWorkout(newWorkout)">New Workout</ui-view>
+        <ui-view ng-click="workout.addWorkout(newWorkout)">New Workout</ui-view>
         <form ng-submit="addWorkout()">
             <input type="text" placeholder="day" ng-model="day"></input>
             <input type="text" placeholder="warmup" ng-model="warmup"></input>
