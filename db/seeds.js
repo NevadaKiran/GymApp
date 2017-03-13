@@ -9,27 +9,27 @@ var Workout = require('../models/workout.js');
 module.exports =[
 {
   id: 1,
-  day: 'Monday',
+  day: ' Monday',
   warmup: 'Ten Minute Run',
   heavy: 'Squats',
   cooldown: 'Ten Minute Walk'
 },{
-  day: 'Tuesday',
+  day: ' Tuesday',
   warmup: 'Ten Minute Shadow Boxing',
   heavy: 'Back and Chest',
   cooldown: 'Half Mile Swim'
 },{
-  day: 'wednesday',
+  day: ' Wednesday',
   warmup: 'Jump Rope',
   heavy: 'Bicepts, Tricepts',
   cooldown: 'Half Mile Swim'
 },{
-  day: 'thursday',
+  day: ' Thursday',
   warmup: 'slow jog',
   heavy: 'sprints',
   cooldown: 'Ten Minute Walk'
 },{
-  day:'friday',
+  day:' Friday',
   warmup: 'Wrestle a bear',
   heavy: 'Climb a mountain',
   cooldown: 'Sky Dive'

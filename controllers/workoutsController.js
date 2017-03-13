@@ -23,14 +23,31 @@ router.get('/', function(req, res) {
       res.json({fitDay: fitWeek[req.params.id]})
     });
 
-
 // BELOW FOR USER CREATED WORKOUTS
-
   router.get('/new', function(req, res){
 	res.render("/partials/createWorkout.html");
 });
 
-router.post('/', function(req, res){
+router.put('/:id', function(req, res) {
+  Workout.findById(req.session.currentUser._id).exec()
+    .then(function(user) {
+      var fitDay = user.fitWeek.id(req.params.id);
+
+      fitDay.day = req.body.day;
+      fitDay.warmup = req.body.warmup;
+      fitDay.heavy = req.body.heavy;
+      fitDay.cooldown = req.body.cooldown;
+
+      workout.save();
+
+      res.json({ fitDay: workout.fitWeek.id(req.params.id) });
+    })
+    .catch(function(err) {
+      res.json(err)
+    })
+});
+
+router.post('/:id', function(req, res){
   var workout = new Workout({
     day: req.body.day,
     warmup: req.body.warmup,

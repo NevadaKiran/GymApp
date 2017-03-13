@@ -16,8 +16,8 @@ function WorkoutController($http, $scope){
 
 function createWorkout($scope) {
 
-  $scope.addPost = function(){
-    $scope.posts.push({day: $scope.day });
+  $scope.addWorkout = function(){
+    $scope.workouts.push({day: $scope.day });
   }
 
 function workoutById(req, res){
