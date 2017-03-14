@@ -7,7 +7,7 @@ mongoose.Promise = global.Promise;
 var WorkoutSchema = new Schema({
   day: String,
   warmup: String,
-  workout: String,
+  heavy: String,
   cooldown: String
 });
 

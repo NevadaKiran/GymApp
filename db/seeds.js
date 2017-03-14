@@ -8,7 +8,6 @@ var Workout = require('../models/workout.js');
 
 module.exports =[
 {
-  id: 1,
   day: ' Monday',
   warmup: 'Ten Minute Run',
   heavy: 'Squats',

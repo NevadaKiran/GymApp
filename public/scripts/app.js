@@ -5,60 +5,51 @@ angular.module('gym-app')
 
 function WorkoutController($http, $scope){
   var controller = this;
+
+
   // this out here is workout controller
   function week(){
-  $http.get('/workouts')
-  .then(function (response) {
-          console.log(response);
-          // this in here actually refers to $http
-          controller.fitWeek = response.data;
-        })
-}
+    console.log('week')
+    $http.get('/workouts')
+    .then(function (response) {
+        console.log(response.data);
+        // this in here actually refers to $http
+        controller.week = response.data;
 
-function addWorkout($scope) {
-
-  $scope.addWorkout = function(){
-    $scope.workouts.push({day: $scope.day });
+      })
   }
 
-function workoutById(req, res){
-    console.log("workoutById ");
-    console.log(this);
-  $http.get('/workouts/:id')
-  .then(function(response){
-    self.fitDay = response.data;
-    console.log(response);
-    console.log(fitDay);
-    // controller.fitDay = response.data;
-  })
+  function addWorkout(){
 
-}
+    $http.post('/workouts' )
+    .then(function(response){
 
-// function($scope){
-//   $scope.posts = [
-//   {title: 'post 1', upvotes: 5},
-//   {title: 'post 2', upvotes: 2},
-//   {title: 'post 3', upvotes: 15},
-//   {title: 'post 4', upvotes: 9},
-//   {title: 'post 5', upvotes: 4}
-// ];
-// $scope.addPost = function(){
-//   $scope.posts.push({title: $scope.title, upvotes: 0});
-//   $scope.title = '';
-//   if(!$scope.title || $scope.title === '') { return; }
-// };
-// };
-
-
-
-
-
-  // console.log("controller.fitWeek");
-  //   controller.fitWeek.push(newWorkout);
-  //   console.log(controller.fitWeek);
-  //   console.log("createWorkout");
+      controller.addWorkout = response.data;
+      console.log(response.data._id);
+      // $scope.fitDay.push({day: $scope.day});
+    })
 
   }
+
+
   this.week = week;
-  // this.fitDay = fitDay;
+  this.addWorkout = addWorkout;
+
 }
+
+// $scope.addWorkout = function(){
+//   $scope.workouts.push({day: $scope.day });
+// }
+
+// console.log("controller.fitWeek");
+//   controller.fitWeek.push(newWorkout);
+//   console.log(controller.fitWeek);
+//   console.log("createWorkout");
+
+//
+// function workoutById(req, res){
+//     console.log("workoutById ");
+//     console.log(this);
+//
+//     // controller.fitDay = response.data;
+//       })

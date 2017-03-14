@@ -15,28 +15,29 @@
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
       <link href="https://fonts.googleapis.com/css?family=Fira+Sans|Open+Sans" rel="stylesheet">
       <link rel="stylesheet" href="css/main.css">
-      <h1>Gym App</h1><h2>Pliz Du Sports Naw</h2>
 
 </head>
-                    {{2 + 2}}
+
 <body ng-controller="WorkoutController as workout">
+  <h1>Gym App</h1>
+  <h2>Pliz Du Sports Naw{{2 + 2}}</h2>
 
   <button ng-init="workout.week()" type="button" name="button">THE WEEK IN GAINS</button>
             <!-- <h3>Week</h3> -->
-        <form ng-repeat="days in workout.fitWeek" class=""  method="post">
-          <ul ng-repeat="day in days">
-            <li><span>DAY {{$index+1}}: {{day.day}}</span></li>
-            <li><span>
-              WARMUP:........{{ day.warmup }}<br>
-              HEAVY:............{{ day.heavy }}<br>
-              COOLDOWN:..{{ day.cooldown }}
-            </span></li>
-           </ul>
-        </form>
+    <form ng-repeat="days in workout.week | limitTo : 1" class=""  method="post">
+      <ul ng-repeat="day in days">{{day}}
+        <li><span>DAY {{$index +1}}: {{day.day}}</span></li>
+        <li><span>
+          WARMUP:........{{ day.warmup }}<br>
+          HEAVY:............{{ day.heavy }}<br>
+          COOLDOWN:..{{ day.cooldown }}
+        </span></li>
+       </ul>
+    </form>
 
 
         <ui-view ng-click="workout.addWorkout(newWorkout)">New Workout</ui-view>
-        <form ng-submit="addWorkout()">
+        <form ng-submit="newWorkout()">
             <input type="text" placeholder="day" ng-model="day"></input>
             <input type="text" placeholder="warmup" ng-model="warmup"></input>
             <input type="text" placeholder="heavy" ng-model="heavy"></input>
