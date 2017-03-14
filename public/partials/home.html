@@ -3,16 +3,39 @@
 
 
 
+<!-- <button ng-click="workout.addWorkout()" type="button" name="button">ADD SOME REAL</button>
+    <ul ng-repeat="days in workout.week | limitTo : 5">
+      <li><span>DAY1 {{days.day}}</span></li>
+      <li><span>WARMUP:........{{ days.warmup }}</span></li><br>
+      <li><span>HEAVY:............{{ days.heavy }}</span>  </li><br>
+      <li><span>COOLDOWN:..{{ days.cooldown }}</span></li>
+    </ul> -->
 
-  <form ng-submit="workout.addWorkout(workout.workoutId)" >
-      <input type="text" ng-model="newWorkout.day" placeholder="day">
-      <input type="text" ng-model="newWorkout.warmup" placeholder="warmup">
-      <input type="text" ng-model="newWorkout.heavy" placeholder="heavy">
-      <input type="text" ng-model="newWorkout.cooldown" placeholder="cooldown"><br>
-      <button type="submit">Create</button>
-      {{newWorkout.day[0]}}
+
+    <button ng-click="workout.addWorkout(day)">POST WORKOUT</button>
+      <form ng-submit="workout.addWorkout(day)">
+
+          <input type="text" ng-model="day.day" placeholder="day"></input>
+          <input type="text" ng-model="day.warmup" placeholder="warmup"></input>
+          <input type="text" ng-model="day.heavy" placeholder="heavy"></input>
+          <input type="text" ng-model="day.cooldown" placeholder="cooldown"></input>
+    <button type="submit">Post</button>
+    </form>
+
+
+
+
+     <!-- <button ng-init="workout.addWorkout()" type="button" name="button">ADD SWOLL</button>
+<div ng-repeat="day in workout.addWorkout" class="">
+    <form  >
+      <input type="text" ng-model="day.day" placeholder="day">
+      <input type="text" ng-model="day.warmup" placeholder="warmup">
+      <input type="text" ng-model="day.heavy" placeholder="heavy">
+      <input type="text" ng-model="day.cooldown" placeholder="cooldown">
+      <button type="submit">CREATE</button>
+
   </form>
-
+</div> -->
 
 
 

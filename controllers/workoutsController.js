@@ -3,9 +3,7 @@ console.log("CONTROLLER HIT");
 var express = require('express');
 var router = express.Router();
 var Workout = require('../models/workout.js');
-var User = require('../models/user.js')
-// var fitWeek = require('../db/seeds.js')
-// var fitDay =require('../db/seeds.js')
+var User = require('../models/user.js');
 var http = require('http');
 var mongoose = require('mongoose');
 
@@ -97,3 +95,6 @@ module.exports = router;
 //
 //       res.json({fitDay: fitWeek[req.params.id]})
 //     });
+
+// var fitWeek = require('../db/seeds.js')
+// var fitDay =require('../db/seeds.js')

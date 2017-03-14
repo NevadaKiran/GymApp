@@ -9,27 +9,41 @@ function WorkoutController($http, $scope){
 
   // this out here is workout controller
   function week(){
-    console.log('week')
+
     $http.get('/workouts')
     .then(function (response) {
         console.log(response.data);
         // this in here actually refers to $http
         controller.week = response.data;
-
       })
   }
 
-  function addWorkout(){
-
-    $http.post('/workouts' )
+  function addWorkout(day){
+    console.log(day);
+    $http.post('/workouts', day )
     .then(function(response){
+        console.log(response.data);
 
       controller.addWorkout = response.data;
       console.log(response.data._id);
-      // $scope.fitDay.push({day: $scope.day});
-    })
 
+    })
   }
+
+  // function addWorkout(day){
+  //     console.log();
+  //   $http.post('/workouts' )
+  //   .then(function(response){
+  //       console.log(response.data);
+  //       var post = response.data
+  //
+  //     controller.addWorkout = response.data;
+  //
+  //     console.log(response.data._id);
+  //     // $scope.post.push({day: $scope.day,
+  //     //   warmup: $scope.warmup, heavy: $scope.heavy, cooldown: $scope.cooldown})
+  //   })
+  // }
 
 
   this.week = week;
@@ -53,3 +67,6 @@ function WorkoutController($http, $scope){
 //
 //     // controller.fitDay = response.data;
 //       })
+
+
+// $scope.fitDay.push({day: $scope.day});

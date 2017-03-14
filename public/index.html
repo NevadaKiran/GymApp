@@ -19,12 +19,10 @@
 </head>
 
 <body ng-controller="WorkoutController as workout">
-  <h1>Gym App</h1>
-  <h2>Pliz Du Sports Naw{{2 + 2}}</h2>
+          <h1>Gym App</h1>
+          <h2>Pliz Du Sports Naw</h2>
 
   <button ng-init="workout.week()" type="button" name="button">THE WEEK IN GAINS</button>
-            <!-- <h3>Week</h3> -->
-
       <ul ng-repeat="days in workout.week | limitTo : 5">
         <li><span>DAY {{$index +1}}: {{days.day}}</span></li>
         <li><span>
@@ -35,24 +33,23 @@
        </ul>
 
 
-
-        <ui-view ng-click="workout.addWorkout(newWorkout)">New Workout</ui-view>
-        <form ng-submit="newWorkout()">
-            <input type="text" placeholder="day" ng-model="day"></input>
-            <input type="text" placeholder="warmup" ng-model="warmup"></input>
-            <input type="text" placeholder="heavy" ng-model="heavy"></input>
-            <input type="text" placeholder="cooldown" ng-model="cooldown"></input>
+        <ui-view ng-click="workout.addWorkout()">I wonder where this typing shows up?</ui-view>
+        <form ng-submit="workout.newWorkout()">
+            <input type="text" placeholder="day" ng-model="day.day"></input>
+            <input type="text" placeholder="warmup" ng-model="day.warmup"></input>
+            <input type="text" placeholder="heavy" ng-model="day.heavy"></input>
+            <input type="text" placeholder="cooldown" ng-model="day.cooldown"></input>
             <button type="submit">New Workout</button>
         </form>
 
-  <!-- <form ng-click="workout.createWorkout">
-    <input ng-model="newWorkout.day" type="text" placeholder="Workout Day">
-    <input ng-model="newWorkout.warmup" type="text" placeholder="warmup">
-    <input ng-model="newWorkout.heavy" type="text" placeholder="heavy">
-    <input ng-model="newWorkout.cooldown" type="text" placeholder="cooldown"><br>
-    <input ng-click="alert('ALERT')" type="submit"> Add Workout </input>
-  </form> -->
-
-
 
 </body>
+
+
+<!-- <form ng-click="workout.createWorkout">
+  <input ng-model="newWorkout.day" type="text" placeholder="Workout Day">
+  <input ng-model="newWorkout.warmup" type="text" placeholder="warmup">
+  <input ng-model="newWorkout.heavy" type="text" placeholder="heavy">
+  <input ng-model="newWorkout.cooldown" type="text" placeholder="cooldown"><br>
+  <input ng-click="alert('ALERT')" type="submit"> Add Workout </input>
+</form> -->
