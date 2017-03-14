@@ -12,15 +12,14 @@
     </ul> -->
 
 
-    <button ng-click="workout.addWorkout(day)">POST WORKOUT</button>
-      <form ng-submit="workout.addWorkout(day)">
-
-          <input type="text" ng-model="day.day" placeholder="day"></input>
-          <input type="text" ng-model="day.warmup" placeholder="warmup"></input>
-          <input type="text" ng-model="day.heavy" placeholder="heavy"></input>
-          <input type="text" ng-model="day.cooldown" placeholder="cooldown"></input>
-    <button type="submit">Post</button>
-    </form>
+    <!-- <button ng-click="workout.addWorkout(day)">POST WORKOUT</button> -->
+<form ng-submit="workout.addWorkout(day)">
+  <input type="text" ng-model="day.day" placeholder="day"></input>
+  <input type="text" ng-model="day.warmup" placeholder="warmup"></input>
+  <input type="text" ng-model="day.heavy" placeholder="heavy"></input>
+  <input type="text" ng-model="day.cooldown" placeholder="cooldown"></input>
+  <button type="submit">Post</button>
+</form>
 
 
 

@@ -19,6 +19,7 @@ function WorkoutController($http, $scope){
   }
 
   function addWorkout(day){
+    console.log('add workout')
     console.log(day);
     $http.post('/workouts', day )
     .then(function(response){
