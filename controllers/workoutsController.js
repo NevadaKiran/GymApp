@@ -4,24 +4,10 @@ var express = require('express');
 var router = express.Router();
 var Workout = require('../models/workout.js');
 var User = require('../models/user.js')
-var fitWeek = require('../db/seeds.js')
+// var fitWeek = require('../db/seeds.js')
 // var fitDay =require('../db/seeds.js')
 var http = require('http');
 var mongoose = require('mongoose');
-
-
-// // index routes THIS BLOCK SHOULD DEAL WITH SEEDED WORKOUTS
-// router.get('/', function(req, res) {
-//   res.json({fitWeek: fitWeek})
-// });
-//     router.get('/:id', function(req, res){
-//       console.log("ID ID ID");
-//       console.log(req.params.id);
-//
-//       res.json({fitDay: fitWeek[req.params.id]})
-//     });
-
-
 
 // BELOW FOR USER CREATED WORKOUTS
 router.get('/', function(req, res) {
@@ -85,9 +71,9 @@ workout.save(function(err, data){
 router.delete('/:id', function(req, res){
     console.log("DELETE ROUTE");
   Workout.findById(req.params.id).exec()
-     .then(function(data){
-       Workout(req.body.id).remove();
-       data.save();
+     .then(function(workout){
+       workout.remove();
+      //  data.save();
        res.json({ data });
      })
      .catch(function(err) {
@@ -100,3 +86,14 @@ router.delete('/:id', function(req, res){
 
 
 module.exports = router;
+
+// // index routes THIS BLOCK SHOULD DEAL WITH SEEDED WORKOUTS
+// router.get('/', function(req, res) {
+//   res.json({fitWeek: fitWeek})
+// });
+//     router.get('/:id', function(req, res){
+//       console.log("ID ID ID");
+//       console.log(req.params.id);
+//
+//       res.json({fitDay: fitWeek[req.params.id]})
+//     });

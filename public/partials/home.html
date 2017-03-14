@@ -1,26 +1,7 @@
 <h2>Add Another Workout</h2>
 <h1>{{newWorkout.day}}</h1>
 
-<!-- <ul class="workout-show">
-  <li>Day: {{day.day}}</li>
-  <li>warmup: {{fitDay.warmup}}</li>
-  <li>heavy: {{workout.heavy}}</li>
-  <li>cooldown: {{workout.cooldown}}</li>
-</ul>
 
-  <a href="/workout">Back Home</a> -->
-
-  <!-- <h1>Plan a new workout</h1> -->
-  <!-- <form action='/workouts/:id' method="GET">
-    <input type="text" name="day" placeholder="Day">
-    {{day.day}}
-    <input type="text" name="warmup" placeholder="Warmup">
-      {{workout.heavy}}
-    <input type="text" name="heavy" placeholder="Heavy">
-
-    <input type="text" name="cooldown" placeholder="Cooldown">
-    <input type="submit" value="Create New Workout">
-  </form> -->
 
 
   <form ng-submit="workout.addWorkout(workout.workoutId)" >
@@ -31,3 +12,27 @@
       <button type="submit">Create</button>
       {{newWorkout.day[0]}}
   </form>
+
+
+
+
+  <!-- <ul class="workout-show">
+    <li>Day: {{day.day}}</li>
+    <li>warmup: {{fitDay.warmup}}</li>
+    <li>heavy: {{workout.heavy}}</li>
+    <li>cooldown: {{workout.cooldown}}</li>
+  </ul>
+
+    <a href="/workout">Back Home</a> -->
+
+    <!-- <h1>Plan a new workout</h1> -->
+    <!-- <form action='/workouts/:id' method="GET">
+      <input type="text" name="day" placeholder="Day">
+      {{day.day}}
+      <input type="text" name="warmup" placeholder="Warmup">
+        {{workout.heavy}}
+      <input type="text" name="heavy" placeholder="Heavy">
+
+      <input type="text" name="cooldown" placeholder="Cooldown">
+      <input type="submit" value="Create New Workout">
+    </form> -->

@@ -17,6 +17,7 @@ var app = express();
 // MIDDLE WARES
 app.use(logger("dev"));
 
+// mongoose.disconnect()
 var mongoURI = process.env.MONGODB_URI || 'mongodb://localhost/gym-app'
 mongoose.connect(mongoURI);
 

@@ -24,16 +24,16 @@
 
   <button ng-init="workout.week()" type="button" name="button">THE WEEK IN GAINS</button>
             <!-- <h3>Week</h3> -->
-    <form ng-repeat="days in workout.week | limitTo : 1" class=""  method="post">
-      <ul ng-repeat="day in days">{{day}}
-        <li><span>DAY {{$index +1}}: {{day.day}}</span></li>
+
+      <ul ng-repeat="days in workout.week | limitTo : 5">
+        <li><span>DAY {{$index +1}}: {{days.day}}</span></li>
         <li><span>
-          WARMUP:........{{ day.warmup }}<br>
-          HEAVY:............{{ day.heavy }}<br>
-          COOLDOWN:..{{ day.cooldown }}
+          WARMUP:........{{ days.warmup }}<br>
+          HEAVY:............{{ days.heavy }}<br>
+          COOLDOWN:..{{ days.cooldown }}
         </span></li>
        </ul>
-    </form>
+
 
 
         <ui-view ng-click="workout.addWorkout(newWorkout)">New Workout</ui-view>
