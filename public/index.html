@@ -23,7 +23,7 @@
           <h2>Pliz Du Sports Naw</h2>
 
   <button ng-init="workout.week()" type="button" name="button">THE WEEK IN GAINS</button>
-      <ul ng-repeat="days in workout.week | limitTo : 5">
+      <ul ng-repeat="days in workout.weekData ">
         <li><span>DAY {{$index +1}}: {{days.day}}</span></li>
         <li><span>
           WARMUP:........{{ days.warmup }}<br>
@@ -39,7 +39,7 @@
 
 </body>
 
-
+<!-- | limitTo : 5 -->
 <!-- <form ng-click="workout.createWorkout">
   <input ng-model="newWorkout.day" type="text" placeholder="Workout Day">
   <input ng-model="newWorkout.warmup" type="text" placeholder="warmup">

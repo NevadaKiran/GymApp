@@ -5,16 +5,15 @@ angular.module('gym-app')
 
 function WorkoutController($http, $scope){
   var controller = this;
-
-
+  controller.weekData = [];
   // this out here is workout controller
-  function week(){
 
+  function week(){
     $http.get('/workouts')
     .then(function (response) {
         console.log(response.data);
         // this in here actually refers to $http
-        controller.week = response.data;
+        controller.weekData = response.data;
       })
   }
 
@@ -25,32 +24,40 @@ function WorkoutController($http, $scope){
     .then(function(response){
         console.log(response.data);
 
-      controller.addWorkout = response.data;
+      // controller.addWorkout = response.data;
       console.log(response.data._id);
 
     })
   }
 
-  // function addWorkout(day){
-  //     console.log();
-  //   $http.post('/workouts' )
-  //   .then(function(response){
-  //       console.log(response.data);
-  //       var post = response.data
-  //
-  //     controller.addWorkout = response.data;
-  //
-  //     console.log(response.data._id);
-  //     // $scope.post.push({day: $scope.day,
-  //     //   warmup: $scope.warmup, heavy: $scope.heavy, cooldown: $scope.cooldown})
-  //   })
-  // }
-
+ //  function deleteWorkout(){
+ // $http.delete(`/workouts`)
+ // .then(function(response){
+ //   getSavedWorkouts();
+ //  })
+ // }
 
   this.week = week;
   this.addWorkout = addWorkout;
-
 }
+
+
+
+// function addWorkout(day){
+//     console.log();
+//   $http.post('/workouts' )
+//   .then(function(response){
+//       console.log(response.data);
+//       var post = response.data
+//
+//     controller.addWorkout = response.data;
+//
+//     console.log(response.data._id);
+//     // $scope.post.push({day: $scope.day,
+//     //   warmup: $scope.warmup, heavy: $scope.heavy, cooldown: $scope.cooldown})
+//   })
+// }
+
 
 // $scope.addWorkout = function(){
 //   $scope.workouts.push({day: $scope.day });
