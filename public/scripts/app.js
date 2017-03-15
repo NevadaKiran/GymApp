@@ -30,12 +30,12 @@ function WorkoutController($http, $scope){
     })
   }
 
- //  function deleteWorkout(){
- // $http.delete(`/workouts`)
- // .then(function(response){
- //   getSavedWorkouts();
- //  })
- // }
+  function deleteWorkout(){
+ $http.delete(`/workouts`)
+ .then(function(response){
+   getSavedWorkouts();
+  })
+ }
 
   this.week = week;
   this.addWorkout = addWorkout;
