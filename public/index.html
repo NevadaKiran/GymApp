@@ -23,20 +23,28 @@
           <h2>Pliz Du Sports Naw</h2>
 
   <button ng-init="workout.week()" type="button" name="button">THE WEEK IN GAINS</button>
-      <ul ng-repeat="days in workout.weekData ">
-        <li><span>DAY {{$index +1}}: {{days.day}}</span></li>
-        <li><span>
-          WARMUP:........{{ days.warmup }}<br>
-          HEAVY:............{{ days.heavy }}<br>
-          COOLDOWN:..{{ days.cooldown }}
-        </span></li>
+      <ul ng-repeat="days in weekData">
+        <li>
+          <span class="new-line">
+            DAY {{$index +1}}: {{days.day}}
+          </span>
+          <span class="new-line">
+              WARMUP:........{{ days.warmup }}
+              HEAVY:............{{ days.heavy }}
+              COOLDOWN:..{{ days.cooldown }}
+
+          </span>
+          <button ng-click="workout.deleteWorkout(days._id)" type="button" name="button">
+            <i class="fa fa-times" aria-hidden="true"></i>:{{days._id}}
+          </button>
+
+        <!-- <a href="" ng-click="workout.deleteWorkout()"> -->
+            <!-- <i class="fa fa-times" aria-hidden="true"></i>:{{days._id}} -->
+          <!-- </a> -->
+        </li>
        </ul>
 
-
         <ui-view>I wonder where this typing shows up?</ui-view>
-
-
-
 </body>
 
 <!-- | limitTo : 5 -->

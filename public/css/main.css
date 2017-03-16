@@ -28,11 +28,14 @@ span {
   font-size: larger;
 
   background: #808080;
-  
+
   /*text-align: center;
   display:inline-block;*/
   /*padding: 5px;
   margin: 10px;*/
+}
+span.new-line {
+  display: block;
 }
 header nav{
   letter-spacing: .1em;

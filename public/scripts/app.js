@@ -5,15 +5,16 @@ angular.module('gym-app')
 
 function WorkoutController($http, $scope){
   var controller = this;
-  controller.weekData = [];
+  // $scope.weekData = [];
   // this out here is workout controller
 
   function week(){
     $http.get('/workouts')
-    .then(function (response) {
-        console.log(response.data);
+    .then(function (allWorkouts) {
+        console.log(allWorkouts.data);
         // this in here actually refers to $http
-        controller.weekData = response.data;
+        // controller.weekData = response.data;
+        $scope.weekData = allWorkouts.data;
       })
   }
 
@@ -21,22 +22,33 @@ function WorkoutController($http, $scope){
     console.log('add workout')
     console.log(day);
     $http.post('/workouts', day )
-    .then(function(response){
-        console.log(response.data);
-
+    .then(function(newWorkout){
+        console.log(newWorkout.data, "responsedata");
+console.log($scope.weekData, "weekData");
+    $scope.weekData.push(newWorkout.data)
       // controller.addWorkout = response.data;
-      console.log(response.data._id);
+      // console.log(response.data._id);
 
     })
   }
 
-  function deleteWorkout(){
- $http.delete(`/workouts`)
- .then(function(response){
-   getSavedWorkouts();
+  function deleteWorkout(id){
+    console.log("DELETE");
+ $http.delete(`/workouts/${id}`)
+ .then(function(deletedWorkout){
+  //  console.log("deleted", deletedWorkout.data);
+console.log("dleted", deletedWorkout.data);
+   var deletedIndex = $scope.weekData.indexOf(deletedWorkout.data);
+console.log(deletedIndex);
+   if (deletedIndex !== -1) {
+     $scope.weekData.splice(deletedIndex, 1);
+   }
+
+  //  getSavedWorkouts();
   })
  }
 
+  this.deleteWorkout = deleteWorkout;
   this.week = week;
   this.addWorkout = addWorkout;
 }

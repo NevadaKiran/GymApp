@@ -72,7 +72,9 @@ router.delete('/:id', function(req, res){
      .then(function(workout){
        workout.remove();
       //  data.save();
-       res.json({ data });
+       res.json(workout);
+       console.log(workout, "workout");
+
      })
      .catch(function(err) {
        res.json(err)
