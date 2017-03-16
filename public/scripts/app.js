@@ -27,11 +27,17 @@ function WorkoutController($http, $scope){
       $http.put('/workouts/' + editedDay._id, editedDay)
       .then(function(newWorkout){
           // after edit // find the edited id update the index
-          // $scope.weekData.forEach(function(day, i) {
-          // if (editedDay.id === day._id) {
-          //   $scope.weekData[i] = editedDay;
-          //   }
-          // });
+          $scope.weekData.forEach(function(day, i) {
+
+
+          if (editedDay._id === day._id) {
+            $scope.weekData[i] = newWorkout.data;
+
+console.log("scope", $scope.weekData[i]);
+console.log("newOne",newWorkout.data);
+
+            }
+          });
       });
     } else {
       // add
