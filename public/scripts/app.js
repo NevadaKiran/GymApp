@@ -31,18 +31,24 @@ console.log($scope.weekData, "weekData");
 
     })
   }
-
+  function isIndex(element) {
+    return element >= 15;
+  }
   function deleteWorkout(id){
     console.log("DELETE");
  $http.delete(`/workouts/${id}`)
  .then(function(deletedWorkout){
   //  console.log("deleted", deletedWorkout.data);
-console.log("dleted", deletedWorkout.data);
-   var deletedIndex = $scope.weekData.indexOf(deletedWorkout.data);
-console.log(deletedIndex);
-   if (deletedIndex !== -1) {
-     $scope.weekData.splice(deletedIndex, 1);
-   }
+
+var deletedId = deletedWorkout.data._id;
+
+$scope.weekData.forEach(function(day, i) {
+  if (deletedId === day._id) {
+    // delete $scope.weekData[i];
+    $scope.weekData.splice(i, 1);
+  }
+});
+
 
   //  getSavedWorkouts();
   })
@@ -90,3 +96,10 @@ console.log(deletedIndex);
 
 
 // $scope.fitDay.push({day: $scope.day});
+// scope data is the view.
+// $scope.weekData.forEach(function(day) {
+//  if(deletedWorkout.data._id === day._id) {
+//    delete day;
+//    return;
+//  }    //delete
+// });
