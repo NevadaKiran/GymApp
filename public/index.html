@@ -23,20 +23,25 @@
           <h2>Pliz Du Sports Naw</h2>
 
   <button ng-init="workout.week()" type="button" name="button">THE WEEK IN GAINS</button>
-      <ul ng-repeat="days in weekData">
-        <li>
+      <ul ng-repeat="day in weekData">
+        <li style="border:2px;">
           <span class="new-line">
-            DAY {{$index +1}}: {{days.day}}
+            DAY {{$index +1}}: {{day.day}}
           </span>
           <span class="new-line">
-              WARMUP:........{{ days.warmup }}
-              HEAVY:............{{ days.heavy }}
-              COOLDOWN:..{{ days.cooldown }}
+              WARMUP:........{{ day.warmup }}
+              HEAVY:............{{ day.heavy }}
+              COOLDOWN:..{{ day.cooldown }}
 
           </span>
-          <button ng-click="workout.deleteWorkout(days._id)" type="button" name="button">
-            <i class="fa fa-times" aria-hidden="true"></i>:{{days._id}}
+          <button ng-click="workout.deleteWorkout(day._id)" type="button" name="button">
+            <i class="fa fa-times" aria-hidden="true"></i>:{{day._id}}
           </button>
+
+          <button ng-click="workout.editWorkout(day)" type="button" name="button">
+            <i class="fa fa-pencil" aria-hidden="true"></i>
+          </button>
+
 
         <!-- <a href="" ng-click="workout.deleteWorkout()"> -->
             <!-- <i class="fa fa-times" aria-hidden="true"></i>:{{days._id}} -->

@@ -3,14 +3,23 @@
 
 
 
-<form ng-submit="workout.addWorkout(day)">
-  <input type="text" ng-model="day.day" placeholder="day"></input>
-  <input type="text" ng-model="day.warmup" placeholder="warmup"></input>
-  <input type="text" ng-model="day.heavy" placeholder="heavy"></input>
-  <input type="text" ng-model="day.cooldown" placeholder="cooldown"></input>
+<form ng-submit="workout.saveWorkout(editableDayFields)">
+  <input type="text" ng-model="editableDayFields.day" placeholder="day"></input>
+  <input type="text" ng-model="editableDayFields.warmup" placeholder="warmup"></input>
+  <input type="text" ng-model="editableDayFields.heavy" placeholder="heavy"></input>
+  <input type="text" ng-model="editableDayFields.cooldown" placeholder="cooldown"></input>
   <button type="submit">Post</button>
 </form>
 
+
+<!-- <h1>t</h1>
+  <form ng-submit="workout.edtiWorkout">
+    <input type="text" name="warmup" value="{{warmup}}"/>
+    <input type="text" name="heavy" value="{{heavy}}">
+    <input type="text" name="cooldown" value="{{cooldown}}">
+    <input type="submit" name="" value="Submit Changes">
+
+  </form> -->
 
 
 

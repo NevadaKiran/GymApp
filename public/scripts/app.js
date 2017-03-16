@@ -18,48 +18,79 @@ function WorkoutController($http, $scope){
       })
   }
 
-  function addWorkout(day){
+  function saveWorkout(editedDay){
     console.log('add workout')
-    console.log(day);
-    $http.post('/workouts', day )
-    .then(function(newWorkout){
-        console.log(newWorkout.data, "responsedata");
-console.log($scope.weekData, "weekData");
-    $scope.weekData.push(newWorkout.data)
-      // controller.addWorkout = response.data;
-      // console.log(response.data._id);
+    console.log(editedDay);
+    //if there is an id, we wanta put(edit) else, post(add)
+    if(editedDay._id){
+      // edit
+      $http.put('/workouts/' + editedDay._id, editedDay)
+      .then(function(newWorkout){
+          // after edit // find the edited id update the index
+          // $scope.weekData.forEach(function(day, i) {
+          // if (editedDay.id === day._id) {
+          //   $scope.weekData[i] = editedDay;
+          //   }
+          // });
+      });
+    } else {
+      // add
+      $http.post('/workouts', day )
+      .then(function(newWorkout){
+          console.log(newWorkout.data, "responsedata");
+          console.log($scope.weekData, "weekData");
+          $scope.weekData.push(newWorkout.data)
+        // controller.addWorkout = response.data;
+        // console.log(response.data._id);
 
-    })
+      })
+    }
   }
+
   function isIndex(element) {
     return element >= 15;
   }
   function deleteWorkout(id){
     console.log("DELETE");
- $http.delete(`/workouts/${id}`)
- .then(function(deletedWorkout){
-  //  console.log("deleted", deletedWorkout.data);
+   $http.delete(`/workouts/${id}`)
+   .then(function(deletedWorkout){
+      //  console.log("deleted", deletedWorkout.data);
 
-var deletedId = deletedWorkout.data._id;
+      var deletedId = deletedWorkout.data._id;
 
-$scope.weekData.forEach(function(day, i) {
-  if (deletedId === day._id) {
-    // delete $scope.weekData[i];
-    $scope.weekData.splice(i, 1);
+      $scope.weekData.forEach(function(day, i) {
+      if (deletedId === day._id) {
+        // delete $scope.weekData[i];
+        $scope.weekData.splice(i, 1);
+        }
+      });
+    })
+  };
+  /**
+  * this populates the form fields.
+  **/
+  function editWorkout(editedDay){
+    $scope.editableDayFields = angular.copy(editedDay);
+    console.log('edit')
   }
-});
 
-
-  //  getSavedWorkouts();
-  })
- }
-
+  this.saveWorkout = saveWorkout
+  this.editWorkout = editWorkout;
   this.deleteWorkout = deleteWorkout;
   this.week = week;
-  this.addWorkout = addWorkout;
+  // this.addWorkout = addWorkout;
 }
 
 
+
+/**
+* this talks the html and is told what edit
+**/
+function editWorkout(day){
+  $scope.day = day;
+  console.log('edit')
+
+}
 
 // function addWorkout(day){
 //     console.log();
