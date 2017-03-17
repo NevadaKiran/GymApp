@@ -22,36 +22,37 @@ function WorkoutController($http, $scope){
     console.log('add workout')
     console.log(editedDay);
     //if there is an id, we wanta put(edit) else, post(add)
-    if(editedDay._id){
-      // edit
-      $http.put('/workouts/' + editedDay._id, editedDay)
-      .then(function(newWorkout){
-          // after edit // find the edited id update the index
-          $scope.weekData.forEach(function(day, i) {
+      if (!editedDay._id) {
+          // add
+          $http.post('/workouts', editedDay)
+              .then(function (newWorkout) {
+                  console.log(newWorkout.data, "responsedata");
+                  console.log($scope.weekData, "weekData");
+                  $scope.weekData.push(newWorkout.data)
+                  // controller.addWorkout = response.data;
+                  // console.log(response.data._id);
+
+              })
+      } else {
+          // edit
+          $http.put('/workouts/' + editedDay._id, editedDay)
+              .then(function (newWorkout) {
+                  /* after edit // find the edited id update the index*/
+                  $scope.weekData.forEach(function (day, i) {
 
 
-          if (editedDay._id === day._id) {
-            $scope.weekData[i] = newWorkout.data;
+                      if (editedDay._id === day._id) {
+                          $scope.weekData[i] = newWorkout.data;
 
-console.log("scope", $scope.weekData[i]);
-console.log("newOne",newWorkout.data);
+                          console.log("scope", $scope.weekData[i]);
+                          console.log("newOne", newWorkout.data);
 
-            }
-          });
-      });
-    } else {
-      // add
-      $http.post('/workouts', day )
-      .then(function(newWorkout){
-          console.log(newWorkout.data, "responsedata");
-          console.log($scope.weekData, "weekData");
-          $scope.weekData.push(newWorkout.data)
-        // controller.addWorkout = response.data;
-        // console.log(response.data._id);
-
-      })
-    }
+                      }
+                  });
+              });
+      }
   }
+
 
   function isIndex(element) {
     return element >= 15;
@@ -64,18 +65,21 @@ console.log("newOne",newWorkout.data);
 
       var deletedId = deletedWorkout.data._id;
 
-      $scope.weekData.forEach(function(day, i) {
+      $scope.weekData.forEach(function(parameters) {
+          var i = parameters.i;
+          var day = parameters.day;
       if (deletedId === day._id) {
         // delete $scope.weekData[i];
         $scope.weekData.splice(i, 1);
         }
       });
     })
-  };
+  }
   /**
   * this populates the form fields.
   **/
-  function editWorkout(editedDay){
+  function editWorkout(parameters){
+      var editedDay = parameters.editedDay;
     $scope.editableDayFields = angular.copy(editedDay);
     console.log('edit')
   }
